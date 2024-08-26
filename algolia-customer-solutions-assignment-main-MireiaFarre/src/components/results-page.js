@@ -27,12 +27,12 @@ class ResultPage {
    */
   _registerClient() {
     this._searchClient = algoliasearch(
-      "SCG9IZ52VQ", // Hardcoded App ID
-      "f9f3f6a57a75040e656a642e19b067f4" // Hardcoded API Key
+      process.env.ALGOLIA_APP_ID,
+      process.env.ALGOLIA_API_KEY
     );
 
     this._searchInstance = instantsearch({
-      indexName: "products", // Hardcoded index name
+      indexName: process.env.ALGOLIA_INDEX,
       searchClient: this._searchClient,
     });
   }
